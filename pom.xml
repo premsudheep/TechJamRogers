@@ -49,14 +49,35 @@
 	</dependencies>
 
 	<build>
-	
-	<finalName>TechJamRog</finalName>
+		<resources>
+			<resource>
+				<directory>${project.build.directory}/resources</directory>
+			</resource>
+		</resources>
+	<pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<configuration>
+						<skipSource>true</skipSource>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<failOnMissingWebXml>false</failOnMissingWebXml>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
@@ -69,11 +90,13 @@
 							<goal>exec</goal>
 						</goals>
 						<configuration>
+							<!-- <classpathScope>test</classpathScope>
+                       		<mainClass>\Users\Prem\Downloads\com.elevate.rogers.techjam\src\main\java\com\elevate\rogers\com\elevate\rogers\techjam\Application.java</mainClass> -->
 							<executable>${npm.executable}</executable>
 							<arguments>
 								<argument>install</argument>
 							</arguments>
-							<workingDirectory>TechJam/src</workingDirectory>
+							<workingDirectory>TechJam</workingDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -81,18 +104,42 @@
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>exec</goal>
-							</goals>
-							<configuration>
+						</goals>
+						<configuration>
 							<executable>${npm.executable}</executable>
 							<arguments>
 								<argument>run</argument>
-								<argument>maven-build</argument>
+								<argument>build</argument>
 							</arguments>
-							<workingDirectory>TechJam/src</workingDirectory>
+							<workingDirectory>TechJam</workingDirectory>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
+			
+			<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-resources-plugin</artifactId>
+			<version>3.1.0</version>
+			<executions>
+				<execution>
+					<id>copy-resources</id>
+					<phase>generate-resources</phase>
+					<goals>
+						<goal>copy-resources</goal>
+					</goals>
+					<configuration>
+					<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/</outputDirectory>
+					<resources>
+                        <resource>
+                           <directory>TechJam/dist</directory>
+                        </resource>
+                     </resources>
+				</configuration>
+			</execution>
+			</executions>
+			</plugin>
+			
 		</plugins>
 	</build>
 
