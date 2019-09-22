@@ -1,3 +1,504 @@
 <span [innerHTML]="responsePayload.deviceName"></span><br>
 <span [innerHTML]="responsePayload.deviceType"></span><br>
 <span [innerHTML]="responsePayload.config"></span><br><br>
+
+
+<ul class="menu">
+  <div class="menu_icon"></div>
+  <li><a href="#">Shop</a></li>
+  <li><a href="#">My Rogers</a></li>
+  <li><a href="#">Support</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+<p class="menu-icon">MENU</p>
+<div class="container-fluid">
+  <div class="header">
+    <img src="https://www.rogers.com/cms/rogers/images/rogers-brand.png" class="logo" alt="Rogers brand image">
+  </div>
+  <div id="search">
+    <form class="main-search">
+      <input type="text" id="search-input" name="search" placeholder="Search..">
+      <span class="fa fa-search form-control-feedback"></span>
+      <!--<button (click)="fetch()">Search</button>-->
+      <p>Robust and Intuitive</p>
+    </form>
+  </div>
+  <div class="container-fluid">
+    <div class="text">
+      <div class="container-card">
+        <div class="card card-phone">
+          <h3 class="title phone">Phone</h3>
+          <div class="bar">
+            <div class="emptybar"></div>
+            <div class="filledbar"></div>
+            <p>We’ve made your favourite devices more affordable, today and every day. </p>
+            <input type="checkbox" id="checks" name="checks">
+          </div>
+        </div>
+        <div class="card card-watch">
+          <h3 class="title watch">Watch</h3>
+          <div class="bar">
+            <div class="emptybar"></div>
+            <div class="filledbar"></div>
+            <p>Share your infinite data with your Smart Watch </p>
+            <input type="checkbox" id="checks" name="checks">
+          </div>
+        </div>
+        <div class="card card-internet">
+          <h3 class="title internet">Internet</h3>
+          <div class="bar">
+            <div class="emptybar"></div>
+            <div class="filledbar"></div>
+            <p>Powerful WiFi at your fingertips</p>
+            <input type="checkbox" id="checks" name="checks">
+          </div>
+        </div>
+        <div class="card card-tv">
+          <h3 class="title tv">TV</h3>
+          <div class="bar">
+            <div class="emptybar"></div>
+            <div class="filledbar"></div>
+            <p>Stream all the content you want on Canada’s most trusted network.</p>
+            <input type="checkbox" id="checks" name="checks">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <p><small> Powered By <b>TEAM BRIGHT</b></small></p>
+  <div id="links">
+    <a href="https://twitter.com/rogers"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.facebook.com/Rogers/"><i class="fa fa-facebook"></i></a>
+    <a href="https://www.youtube.com/user/RogersCanada"><i class="fa fa-youtube"></i></a>
+    <a href="https://www.linkedin.com/company/rogers-communications/?originalSubdomain=ca"><i class="fa fa-linkedin"></i></a>
+  </div>
+</footer>
+
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    background: #f6f6f6;
+  }
+
+  .main-content {
+    width: 65%;
+    float: left;
+    margin-left: 5%;
+  }
+
+  input#checks {
+    margin-left: 4em;
+    margin-top: 1em;
+  }
+
+  .highlight {
+    color: #22D6FF;
+    font-weight: bold;
+  }
+
+  .text {
+    margin: 5em auto auto 5em;
+  }
+
+  .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+  }
+
+  .menu {
+    position: fixed;
+    display: block;
+    width: 130px;
+    height: 100%;
+    background: #DA291C;
+    left: -130px;
+    top: 0;
+    text-align: center;
+    padding-top: 60px;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .menu:after {
+    position: absolute;
+    content: "";
+    width: 60px;
+    height: 60px;
+    background: #DA291C;
+    top: 0;
+    right: -60px;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .menu:hover {
+    left: 0;
+  }
+
+  .menu:hover:after {
+    right: 0px;
+  }
+
+  .menu:hover .menu_icon {
+    left: 50%;
+  }
+
+  .menu li {
+    list-style-type: none;
+  }
+
+  .menu li a {
+    color: #FFF;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  .menu li a:hover {
+    background: #000;
+  }
+
+  .menu_icon {
+    position: absolute;
+    top: 36px;
+    left: 158px;
+    margin: -10px;
+    width: 20px;
+    height: 4px;
+    background: #fff;
+    z-index: 4;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .menu_icon:after {
+    position: absolute;
+    bottom: 7px;
+    left: 0px;
+    content: '';
+    width: 20px;
+    height: 4px;
+    background: #fff;
+  }
+
+  .menu_icon:before {
+    position: absolute;
+    bottom: -7px;
+    left: 0px;
+    content: '';
+    width: 20px;
+    height: 4px;
+    background: #fff;
+  }
+
+  .text h2,
+  .text h3 {
+    font-size: 30px;
+    padding: 20px 0 10px;
+    margin-bottom: 15px;
+  }
+
+  .text h2 {
+    font-size: 30px;
+    line-height: 42px;
+  }
+
+  .text h3 {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  .text p {
+    padding: 10px 0;
+    font-size: 16px;
+  }
+
+  .text img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .menu_icon {
+      left: 60px;
+    }
+    .menu {
+      position: relative;
+      width: 100%;
+      height: 60px;
+      left: 0px;
+      top: 0px;
+      padding-top: 0;
+      padding-left: 80px;
+    }
+    .menu:after {
+      display: none;
+    }
+    .menu:hover .menu_icon {
+      left: 60px;
+    }
+    li {
+      float: left;
+      margin: 0 20px;
+    }
+    li a {
+      padding: 0 10px;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .logo {
+      max-height: 39px;
+      max-width: 100%;
+      float: left;
+      margin-right: 1em;
+      float: right;
+    }
+  }
+
+  .header {
+    margin-top: 1em;
+    overflow: hidden;
+    margin-bottom: 5em;
+  }
+
+  .container {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: center;
+    height: 130px;
+  }
+
+  .container h3 {
+    color: #000;
+    margin: 0 0 25px;
+    position: relative;
+    z-index: 2;
+    font-family: sans-serif;
+  }
+
+  input[type=text] {
+    width: 500px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+
+  input[type=text]:focus {
+    width: 75%;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .container-card {
+    display: flex;
+  }
+
+  .card {
+    display: flex;
+    height: 280px;
+    width: 200px;
+    background-color: #17141d;
+    border-radius: 10px;
+    box-shadow: -1rem 0 1rem #000;
+    transition: 0.4s ease-out;
+    position: relative;
+    left: 0px;
+  }
+
+  .card:not(:first-child) {
+    margin-left: -50px;
+  }
+
+  .card:hover {
+    transform: translateY(-20px);
+    transition: 0.4s ease-out;
+  }
+
+  .card:hover~.card {
+    position: relative;
+    left: 50px;
+    transition: 0.4s ease-out;
+  }
+
+  .title {
+    color: white;
+    font-weight: 300;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+  }
+
+  .bar {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    height: 5px;
+    width: 150px;
+  }
+
+  .emptybar {
+    background-color: #2e3033;
+    width: 100%;
+    height: 100%;
+  }
+
+  .filledbar {
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    width: 0px;
+    height: 100%;
+    background: rgb(0, 154, 217);
+    background: linear-gradient(90deg, rgba(0, 154, 217, 1) 0%, rgba(217, 147, 0, 1) 65%, rgba(255, 186, 0, 1) 100%);
+    transition: 0.6s ease-out;
+  }
+
+  .card:hover .filledbar {
+    width: 120px;
+    transition: 0.4s ease-out;
+  }
+
+  .circle {
+    position: absolute;
+    top: 150px;
+    left: calc(50% - 60px);
+  }
+
+  .stroke {
+    stroke: white;
+    stroke-dasharray: 360;
+    stroke-dashoffset: 360;
+    transition: 0.6s ease-out;
+  }
+
+  .card:hover .stroke {
+    stroke-dashoffset: 100;
+    transition: 0.6s ease-out;
+  }
+
+  .bar p {
+    color: #fff;
+    font-size: 12px;
+    widows: 100px;
+    padding-top: 30px;
+    height: 60px;
+  }
+
+  p.menu-icon {
+    color: #DA291C;
+    position: absolute;
+    left: 74px;
+  }
+
+  div#search {
+    margin: 0 auto;
+    margin-top: 5em;
+  }
+
+  .main-search {
+    margin: 0 auto;
+    margin-left: 23%;
+  }
+
+  .main-search p {
+    color: #888;
+    width: 63%;
+    padding-top: 1em;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  ::placeholder {
+    /* Firefox, Chrome, Opera */
+    color: #ffcccc;
+    text-align: center;
+  }
+
+  .phone {
+    color: #4fadff;
+  }
+
+  .watch {
+    color: #38d996;
+  }
+
+  .internet {
+    color: #9085da;
+  }
+
+  .tv {
+    color: #ff4467;
+  }
+
+  span.fa.fa-search.form-control-feedback {
+    position: absolute;
+    margin-left: -30px;
+    margin-top: 15px;
+    color: #d2d2d2;
+  }
+
+  footer {
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    font-family: "open sans";
+    line-height: 48px;
+    clear: both;
+    margin-top: 2em;
+  }
+
+  footer #links {
+    float: right;
+    font-size: 30px;
+    margin-right: 20px;
+  }
+
+  footer #links a {
+    color: #000000;
+  }
+
+  footer #links i {
+    opacity: 0.3;
+  }
+
+  footer #links i:hover {
+    opacity: 1;
+  }
+
+  footer p {
+    float: left;
+    margin-left: 20px;
+  }
+
+</style>

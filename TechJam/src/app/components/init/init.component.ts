@@ -12,6 +12,13 @@ export class InitComponent implements OnInit, OnDestroy {
 
   resSub: Subscription;
   responsePayload = {};
+  searchPayload = {
+    "device": {
+      deviceType:"phone",
+    },
+    "search":"",
+    "postalCode":""
+  }
 
   ngOnDestroy(): void {
     this.resSub.unsubscribe();
@@ -20,20 +27,16 @@ export class InitComponent implements OnInit, OnDestroy {
   constructor(private store: Store<any>) { }
 
   ngOnInit() {
-
-    const searchPayload = {
-      "device": {
-        deviceType:"phone",
-      },
-      "search":"",
-      "postalCode":""
-    }
-
-    this.store.dispatch(new InitialAction(searchPayload));
+    this.store.dispatch(new InitialAction(this.searchPayload));
     this.resSub = this.store.select('initValue').subscribe(res => {
       this.responsePayload = res.initValue;
       console.log(this.responsePayload);
     })
+  }
+
+  fetch() {
+    //this.searchPayload.search = document.getElementById("search-input").innerText;
+    this.store.dispatch(new InitialAction(this.searchPayload));
   }
 
 }
