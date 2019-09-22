@@ -13,8 +13,8 @@ export class InitEffects {
   @Effect()
   getInitValue = this.action_.pipe(
     ofType(INIT_ACTION),
-    mergeMap((action: InitialAction) => this.http.httpPost('sample-Endpoint', action.payload).pipe(
-      map((response: {}) => {
+    mergeMap((action: InitialAction) => this.http.httpPost('/assets/mocks/deviceResponse.json', action.payload).pipe(
+      map((response: any) => {
           return new InitialActionSuccess(response);
       }),
       catchError(response => of(new InitialActionFailed(response)))

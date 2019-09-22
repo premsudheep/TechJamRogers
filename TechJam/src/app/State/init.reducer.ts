@@ -1,5 +1,4 @@
-import {INIT_ACTION} from "@ngrx/store-devtools/src/reducer";
-import {INIT_ACTION_FAILED, INIT_ACTION_SUCCESS} from "./init.action";
+import {INIT_ACTION, INIT_ACTION_FAILED, INIT_ACTION_SUCCESS} from "./init.action";
 
 export function initReducer(state = {}, action) {
   switch(action.type) {
